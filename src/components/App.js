@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Actors from "./Actors";
@@ -7,23 +7,19 @@ import Directors from "./Directors";
 import Movies from "./Movies";
 
 function App() {
+  
   return (
     <div>
-      <NavBar />
-      <Switch>
-        <Route path="/movies">
-          <Movies />
-        </Route>
-        <Route path="/actors">
-          <Actors />
-        </Route>
-        <Route path="/directors">
-          <Directors />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Router>
+        <NavBar />
+
+        <Routes>
+          <Route path="/directors" element={<Directors />} />
+          <Route path="/actors" element={<Actors />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
