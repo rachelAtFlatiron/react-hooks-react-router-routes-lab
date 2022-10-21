@@ -8,16 +8,15 @@ function Actors() {
     <h1>Actors</h1>
     {actors.map((el) => {
       return (
-        <Card>
-          <Card.Content>
-            <Card.Header>{el.name}</Card.Header>
-            <Card.Description>
+        <div>
+
+            <h2>{el.name}</h2>
+            <ul>
               {
               el.movies.map((el) => <li>{el}</li>)
               }
-            </Card.Description>
-          </Card.Content>
-        </Card>
+            </ul>
+        </div>
       )
     })}
   </div>;
